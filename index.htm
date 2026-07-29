@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basit Kütüphane Takip Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>📚 Kütüphane Takip Sistemi</h1>
+        </header>
+
+        <!-- Sayaçlar -->
+        <section class="counters">
+            <div class="counter-card">
+                <h3>Toplam Kitap</h3>
+                <p id="totalCount">0</p>
+            </div>
+            <div class="counter-card">
+                <h3>Kütüphanede</h3>
+                <p id="availableCount">0</p>
+            </div>
+            <div class="counter-card">
+                <h3>Ödünç Verilen</h3>
+                <p id="borrowedCount">0</p>
+            </div>
+            <div class="counter-card">
+                <h3>Filtrelenen</h3>
+                <p id="filteredCount">0</p>
+            </div>
+        </section>
+
+        <!-- Form ve Örnek Veri / Tümünü Sil Alanı -->
+        <section class="form-section">
+            <div class="section-header">
+                <h2 id="formTitle">Yeni Kitap Ekle</h2>
+                <div class="quick-actions">
+                    <button id="btnSampleData" class="btn btn-secondary">Örnek Veri Ekle</button>
+                    <button id="btnClearAll" class="btn btn-danger">Tüm Kayıtları Sil</button>
+                </div>
+            </div>
+
+            <form id="bookForm">
+                <input type="hidden" id="bookId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="title">Kitap Adı</label>
+                        <input type="text" id="title" placeholder="Kitap adını giriniz...">
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Yazar Adı</label>
+                        <input type="text" id="author" placeholder="Yazar adını giriniz...">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Kategori</label>
+                        <select id="category">
+                            <option value="">Kategori Seçiniz</option>
+                            <option value="Roman">Roman</option>
+                            <option value="Bilim">Bilim</option>
+                            <option value="Tarih">Tarih</option>
+                            <option value="Yazılım">Yazılım</option>
+                            <option value="Diğer">Diğer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pageCount">Sayfa Sayısı</label>
+                        <input type="number" id="pageCount" placeholder="Sayfa sayısı...">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="btnSubmit" class="btn btn-primary">Kitap Ekle</button>
+                    <button type="button" id="btnCancel" class="btn btn-warning" style="display: none;">İptal</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Filtreler ve Arama -->
+        <section class="filter-section">
+            <div class="filter-grid">
+                <div class="form-group">
+                    <label for="searchInput">Arama</label>
+                    <input type="text" id="searchInput" placeholder="Kitap veya yazar adı ara...">
+                </div>
+                <div class="form-group">
+                    <label for="filterCategory">Kategori Filtresi</label>
+                    <select id="filterCategory">
+                        <option value="Tümü">Tüm Kategoriler</option>
+                        <option value="Roman">Roman</option>
+                        <option value="Bilim">Bilim</option>
+                        <option value="Tarih">Tarih</option>
+                        <option value="Yazılım">Yazılım</option>
+                        <option value="Diğer">Diğer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filterStatus">Durum Filtresi</label>
+                    <select id="filterStatus">
+                        <option value="Tümü">Tüm Durumlar</option>
+                        <option value="Kütüphanede">Kütüphanede</option>
+                        <option value="Ödünç Verildi">Ödünç Verildi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sortOrder">Sıralama</label>
+                    <select id="sortOrder">
+                        <option value="created">Eklenme Sırası</option>
+                        <option value="title-az">Kitap Adına Göre A-Z</option>
+                        <option value="title-za">Kitap Adına Göre Z-A</option>
+                        <option value="page-asc">Sayfa Sayısı Artan</option>
+                        <option value="page-desc">Sayfa Sayısı Azalan</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-actions">
+                <button id="btnClearFilters" class="btn btn-secondary">Filtreleri Temizle</button>
+            </div>
+        </section>
+
+        <!-- Kitap Listesi Tablosu -->
+        <section class="table-section">
+            <h2>Kitap Listesi</h2>
+            <div class="table-responsive">
+                <table id="bookTable">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kitap</th>
+                            <th>Yazar</th>
+                            <th>Kategori</th>
+                            <th>Sayfa</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookTableBody">
+                        <!-- Dinamik olarak doldurulacak -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
