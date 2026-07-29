@@ -2,6 +2,8 @@
 
 Modern ve kullanıcı dostu arayüze sahip, **HTML5**, **CSS3** ve **Vanilla JavaScript** kullanılarak geliştirilmiş web tabanlı bir kütüphane yönetim uygulamasıdır. Tarayıcınızın `localStorage` özelliğini kullanarak verilerin kalıcı olmasını sağlar.
 
+<img width="1273" height="902" alt="Screenshot 2026-07-29 140749" src="https://github.com/user-attachments/assets/e0a24f2c-5c08-42cd-ace5-c7cf8271ee75" />
+
 ## 🚀 Özellikler
 
 * **Kitap Yönetimi:** Kitap ekleme, düzenleme, silme ve tüm kayıtları tek tuşla temizleme.
